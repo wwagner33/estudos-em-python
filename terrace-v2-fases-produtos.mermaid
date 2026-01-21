@@ -1,0 +1,102 @@
+flowchart TD
+    %% Estilos
+    classDef action fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000;
+    classDef product fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,stroke-dasharray: 5 5,color:#000;
+    classDef delivery fill:#fff9c4,stroke:#fbc02d,stroke-width:4px,color:#000;
+    classDef partners fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000;
+
+    %% Início
+    Start((Início)) --> Eixo1
+
+    %% Eixo 1: Diagnóstico e Definição
+    subgraph Eixo1 [1. Diagnóstico Técnico e Definição]
+        direction TB
+        P[Parceiros: IDACE, INCRA, SEMACE, <br/>COGERH, SDA, SEPLAG]:::partners
+        A1[Oficinas Colaborativas e Entrevistas]:::action
+        A2[Mapeamento de Fluxos e Requisitos]:::action
+        D1[[Definição de Escopo e Bases de Dados]]:::product
+        
+        P --> A1
+        A1 --> A2
+        A2 --> D1
+    end
+
+    %% Conexão para o desenvolvimento
+    D1 --> Eixo2
+    D1 --> Eixo3
+    D1 --> Eixo4
+
+    %% Eixo 2: Reengenharia
+    subgraph Eixo2 [2. Reengenharia da Arquitetura]
+        direction TB
+        A3[Migração para Alta Performance]:::action
+        A4[Implementação de Pipelines Automatizados<br/>Validação e Atualização]:::action
+        D2[[Agente Inteligente <br/>Interface em Linguagem Natural]]:::delivery
+        D3[[Plataforma Geoespacial Otimizada]]:::delivery
+        
+        A3 --> A4
+        A4 --> D3
+        A4 --> D2
+    end
+
+    %% Eixo 3: Módulos de Serviços
+    subgraph Eixo3 [3. Módulos de Automação e Serviços]
+        direction TB
+        A5[Desenvolvimento de Módulos Específicos]:::action
+        
+        subgraph Interno [Uso Interno IDACE]
+            D4[[Sistema de Assinaturas Digitais<br/>Titulação de Imóveis]]:::delivery
+        end
+        
+        subgraph Externo [Uso Interinstitucional]
+            D5[[Ferramenta de Valoração<br/>Danos Ambientais]]:::delivery
+            D5a[Relatórios em PDF e <br/>Cálculos Guiados CNMP]:::product
+            D5 --- D5a
+        end
+
+        A5 --> Interno
+        A5 --> Externo
+    end
+
+    %% Eixo 4: Atlas Digital (Social)
+    subgraph Eixo4 [4. Atlas Digital Socioterritorial]
+        direction TB
+        A6[Metodologia de Tecnologia Social]:::action
+        A7[Cartografia Social e Escuta Qualificada]:::action
+        A8[Oficinas Multimídia e Coautoria]:::action
+        D6[[Atlas Digital Socioterritorial]]:::delivery
+        D7[[Mini-documentários e Memória Territorial]]:::product
+
+        A6 --> A7
+        A7 --> A8
+        A8 --> D6
+        A8 --> D7
+    end
+
+    %% Eixo 5: Capacitação (Transversal)
+    subgraph Eixo5 [5. Transferência Tecnológica]
+        direction TB
+        A9[Trilhas Formativas: Python, GIS, Dados]:::action
+        A10[Mentorias Técnicas com Dados Reais]:::action
+        D8[[Playbooks de Operação]]:::delivery
+        D9[[Autonomia Institucional e Sustentabilidade]]:::delivery
+
+        A9 --> A10
+        A10 --> D8
+        D8 --> D9
+    end
+
+    %% Fluxo final
+    Eixo2 --> Eixo5
+    Eixo3 --> Eixo5
+    Eixo4 --> Eixo5
+    
+    D9 --> Fim((Modernização<br/>Efetiva))
+
+    %% Legenda
+    subgraph Legenda [Legenda]
+        L1[Ação / Processo]:::action
+        L2[[Produto Intermediário]]:::product
+        L3[[Entrega Final / Sistema]]:::delivery
+        L4[Parceiros / Stakeholders]:::partners
+    end
