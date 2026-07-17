@@ -1,0 +1,9 @@
+[run]
+branch = True
+omit =
+    */alien_invasion.py
+    */tests/*
+
+[report]
+show_missing = True
+skip_covered = False

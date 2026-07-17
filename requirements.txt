@@ -2,3 +2,4 @@ matplotlib
 numpy
 pygame
 opencv-python
+pytest
